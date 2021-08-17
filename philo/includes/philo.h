@@ -83,7 +83,6 @@ typedef struct s_philo
 typedef struct s_data
 {
 	int				nb;
-	int				i;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
@@ -92,8 +91,7 @@ typedef struct s_data
 	long long		time_of_death;
 	struct timeval	start;
 	t_philo			**philos;
-//	pthread_mutex_t	m_msg;
-	pthread_mutex_t	m_kill;
+	pthread_t		death_checker;
 }					t_data;
 
 /**
@@ -104,7 +102,7 @@ int	parse_args(char **tab, t_data *data);
 int	ft_threads(t_data *data);
 int	ft_eat(t_philo *philo);
 int	ft_sleep(t_philo *philo);
-int	ft_think(t_philo *philo);
+int	ft_think(t_philo *philo, int print);
 int ft_die(t_philo *philo);
 int check_death(t_philo *philo);
 

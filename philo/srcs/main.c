@@ -21,10 +21,7 @@ int	main(int argc, char **argv)
 		return (print_error(ERR_PROMPT));
 	if (parse_args(argv, &data))
 		return (1);
-	//pthread_mutex_init(&data.m_msg, NULL);
-	pthread_mutex_init(&data.m_kill, NULL);
 	ft_threads(&data);
-	//return (pthread_mutex_destroy(&data.m_msg) && pthread_mutex_destroy(&data.m_kill));
 	i = 0;
 	while (i++ < data.nb)
 	{
@@ -32,6 +29,5 @@ int	main(int argc, char **argv)
 		free(data.philos[i - 1]);
 	}
 	free(data.philos);
-	//return (pthread_mutex_destroy(&data.m_msg) && pthread_mutex_destroy(&data.m_kill));
-	return (pthread_mutex_destroy(&data.m_kill));
+	return (0);
 }
