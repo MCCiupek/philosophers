@@ -14,7 +14,7 @@
 
 static int	print_action(t_philo *philo, char *msg, char *color)
 {
-	struct timeval  now;
+	struct timeval	now;
 
 	if (philo->data->death)
 		return (1);
@@ -72,11 +72,12 @@ int	ft_think(t_philo *philo, int print)
 	return (philo->data->death);
 }
 
-int ft_die(t_philo *philo)
+int	ft_die(t_philo *philo)
 {
-	struct timeval  now;
+	struct timeval	now;
 
 	gettimeofday(&now, NULL);
+	philo->data->time_of_death = time_diff(&philo->data->start, &now);
 	printf("%s[%010lli]\t%sPhilo %d %s\n%s", \
 		GREY, \
 		time_diff(&philo->data->start, &now), \
@@ -84,5 +85,6 @@ int ft_die(t_philo *philo)
 		philo->id + 1, \
 		DIE, \
 		NO_COLOR);
+	philo->data->death = 1;
 	return (philo->data->death);
 }

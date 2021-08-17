@@ -12,10 +12,10 @@
 
 #include "philo.h"
 
-static void *death_checker(void *arg)
+static void	*death_checker(void *arg)
 {
-	struct timeval  now;
-	t_data 			*data;
+	struct timeval	now;
+	t_data			*data;
 	t_philo			*philo;
 	int				i;
 
@@ -27,14 +27,12 @@ static void *death_checker(void *arg)
 		while (i++ < data->nb)
 		{
 			philo = data->philos[i - 1];
-			if (philo->data->nb_meals > -1 && philo->nb_meals == philo->data->nb_meals)
+			if (data->nb_meals > -1 && philo->nb_meals == data->nb_meals)
 				return (NULL);
 			gettimeofday(&now, NULL);
 			if (time_diff(&philo->last_meal, &now) >= data->time_to_die)
 			{
-				data->time_of_death = time_diff(&data->start, &now);
 				ft_die(philo);
-				data->death = 1;
 				return (NULL);
 			}
 		}
@@ -52,7 +50,8 @@ void	*start_routine(void *arg)
 	print = 1;
 	while (!philo->data->death)
 	{
-		if (philo->data->nb_meals > -1 && philo->nb_meals == philo->data->nb_meals)
+		if (philo->data->nb_meals > -1 && \
+			philo->nb_meals == philo->data->nb_meals)
 			break ;
 		if (ft_eat(philo))
 			ft_sleep(philo);

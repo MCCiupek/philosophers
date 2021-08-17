@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-long long int time_diff(struct timeval *start, struct timeval *end)
+long long int	time_diff(struct timeval *start, struct timeval *end)
 {
 	return (1 / S_TO_MS * (end->tv_sec - start->tv_sec) \
 		+ 1 / MUS_TO_MS * (end->tv_usec - start->tv_usec));

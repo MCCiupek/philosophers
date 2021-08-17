@@ -103,8 +103,7 @@ int	ft_threads(t_data *data);
 int	ft_eat(t_philo *philo);
 int	ft_sleep(t_philo *philo);
 int	ft_think(t_philo *philo, int print);
-int ft_die(t_philo *philo);
-int check_death(t_philo *philo);
+int	ft_die(t_philo *philo);
+int	check_death(t_philo *philo);
 
 #endif
-

@@ -23,8 +23,6 @@ SRC =			main.c \
 				actions.c \
 				utils/time.c \
 				utils/ft_putstr_fd.c \
-				utils/ft_putchar_fd.c \
-				utils/ft_putnbr_fd.c \
 				utils/ft_atoi.c
 
 SRCS =			$(addprefix $(DIR_SRCS), $(SRC))
