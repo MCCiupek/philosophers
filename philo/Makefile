@@ -12,7 +12,7 @@ DIR_SRCS =		./srcs/
 
 MACOS_FLAGS =	-framework OpenGL -framework AppKit
 
-LINUX_FLAGS =	-lXext -lX11 -lm
+LINUX_FLAGS =	-pthread
 
 #FSAN =			-fsanitize=address
 
@@ -44,7 +44,7 @@ ifeq ($(UNAME),Darwin)
 endif
 
 ifeq ($(UNAME),Linux)
-	OS = -D LINUX
+	OS = $(LINUX_FLAGS) -D LINUX
 endif
 
 all:			$(NAME)
