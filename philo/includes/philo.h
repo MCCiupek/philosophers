@@ -63,8 +63,12 @@
 ** Constant
 **/
 
-# define MUS_TO_MS 1e3
-# define S_TO_MS 1e-3
+# define MS_TO_S 1e-6
+# define US_TO_MS 1e-3
+# define MS_TO_US 1e3
+# define US_TO_MS 1e-3
+# define S_TO_US 1e6
+# define S_TO_MS 1e3
 
 /**
 ** Data
@@ -75,6 +79,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	pthread_mutex_t	fork;
 	int				id;
+	int				next;
 	struct timeval	last_meal;
 	int				nb_meals;
 	struct s_data	*data;
@@ -92,6 +97,8 @@ typedef struct s_data
 	struct timeval	start;
 	t_philo			**philos;
 	pthread_t		death_checker;
+//	pthread_mutex_t	kill;
+	pthread_mutex_t	msg;
 }					t_data;
 
 /**
@@ -100,10 +107,14 @@ typedef struct s_data
 
 int	parse_args(char **tab, t_data *data);
 int	ft_threads(t_data *data);
+int	pick_forks(t_philo *philo);
+int	drop_forks(t_philo *philo);
+int	print_action(t_philo *philo, char *msg, char *color);
 int	ft_eat(t_philo *philo);
 int	ft_sleep(t_philo *philo);
-int	ft_think(t_philo *philo, int print);
+int	ft_think(t_philo *philo);
 int	ft_die(t_philo *philo);
 int	check_death(t_philo *philo);
+int	ft_usleep(int time);
 
 #endif

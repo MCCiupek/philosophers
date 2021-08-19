@@ -23,18 +23,19 @@ static void	*death_checker(void *arg)
 	while (!data->death)
 	{
 		i = 0;
-		usleep(1 * MUS_TO_MS);
 		while (i++ < data->nb)
 		{
 			philo = data->philos[i - 1];
 			if (data->nb_meals > -1 && philo->nb_meals == data->nb_meals)
 				return (NULL);
 			gettimeofday(&now, NULL);
+			pthread_mutex_lock(&philo->data->msg);
 			if (time_diff(&philo->last_meal, &now) >= data->time_to_die)
 			{
 				ft_die(philo);
 				return (NULL);
 			}
+			pthread_mutex_unlock(&philo->data->msg);
 		}
 	}
 	return (NULL);
@@ -43,11 +44,9 @@ static void	*death_checker(void *arg)
 void	*start_routine(void *arg)
 {
 	t_philo	*philo;
-	int		print;
 
 	philo = (t_philo *)arg;
-	usleep(MUS_TO_MS * (philo->id % 2) / 2);
-	print = 1;
+	ft_usleep(philo->id % 2);
 	while (!philo->data->death)
 	{
 		if (philo->data->nb_meals > -1 && \
@@ -55,9 +54,7 @@ void	*start_routine(void *arg)
 			break ;
 		if (ft_eat(philo))
 			ft_sleep(philo);
-		ft_think(philo, print);
-		if (philo->data->nb == 1)
-			print = 0;
+		ft_think(philo);
 	}
 	return (NULL);
 }
@@ -72,6 +69,9 @@ t_philo	*init_philo(t_data *data, int i)
 	philo->data = data;
 	philo->nb_meals = 0;
 	philo->last_meal = data->start;
+	philo->next = 0;
+	if (philo->id < data->nb - 1)
+		philo->next = philo->id + 1;
 	return (philo);
 }
 
@@ -93,8 +93,9 @@ int	ft_threads(t_data *data)
 		philo = data->philos[i++];
 		pthread_create(&philo->thread, NULL, start_routine, (void *)philo);
 	}
-	i = 0;
+	pthread_mutex_unlock(&philo->data->msg);
 	pthread_detach(data->death_checker);
+	i = 0;
 	while (i++ < data->nb)
 		pthread_join(data->philos[i - 1]->thread, NULL);
 	return (0);

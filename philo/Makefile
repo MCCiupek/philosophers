@@ -21,7 +21,8 @@ SRC =			main.c \
 				parsing.c \
 				threads.c \
 				actions.c \
-				utils/time.c \
+				forks.c \
+				time.c \
 				utils/ft_putstr_fd.c \
 				utils/ft_atoi.c
 
