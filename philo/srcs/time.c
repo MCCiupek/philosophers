@@ -32,10 +32,10 @@ int	ft_usleep(int time_in_ms)
 
 	gettimeofday(&start, NULL);
 	gettimeofday(&now, NULL);
-	time = time_in_ms * MS_TO_US - 1;
+	time = time_in_ms * MS_TO_US - 100;
 	while (us_time_diff(&start, &now) < time)
 	{
-		usleep(1);
+		usleep(1000);
 		gettimeofday(&now, NULL);
 	}
 	return (0);

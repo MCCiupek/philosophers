@@ -23,6 +23,7 @@ static void	*death_checker(void *arg)
 	while (!data->death)
 	{
 		i = 0;
+		usleep(1);
 		while (i++ < data->nb)
 		{
 			philo = data->philos[i - 1];
@@ -46,7 +47,7 @@ void	*start_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	ft_usleep(philo->id % 2);
+	//ft_usleep(philo->id % 2);
 	while (!philo->data->death)
 	{
 		if (philo->data->nb_meals > -1 && \
