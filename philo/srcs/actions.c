@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 18:08:02 by mciupek           #+#    #+#             */
-/*   Updated: 2021/07/28 18:08:03 by mciupek          ###   ########.fr       */
+/*   Updated: 2021/08/20 12:39:04 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_think(t_philo *philo)
 	return (print_action(philo, THINK, YELLOW));
 }
 
-int	ft_die(t_philo *philo)
+int	*ft_die(t_philo *philo)
 {
 	struct timeval	now;
 
@@ -71,5 +71,5 @@ int	ft_die(t_philo *philo)
 		DIE, \
 		NO_COLOR);
 	philo->data->death = 1;
-	return (philo->data->death);
+	return (NULL);
 }

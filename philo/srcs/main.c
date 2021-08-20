@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 14:12:25 by mciupek           #+#    #+#             */
-/*   Updated: 2021/07/27 14:12:48 by mciupek          ###   ########.fr       */
+/*   Updated: 2021/08/20 12:29:04 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 		return (print_error(ERR_PROMPT));
 	if (parse_args(argv, &data))
 		return (1);
-	//pthread_mutex_init(&data.kill, NULL);
 	pthread_mutex_init(&data.msg, NULL);
 	ft_threads(&data);
 	i = 0;

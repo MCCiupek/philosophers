@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 14:13:01 by mciupek           #+#    #+#             */
-/*   Updated: 2021/07/27 14:13:33 by mciupek          ###   ########.fr       */
+/*   Updated: 2021/08/20 12:39:19 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ typedef struct s_data
 	struct timeval	start;
 	t_philo			**philos;
 	pthread_t		death_checker;
-//	pthread_mutex_t	kill;
 	pthread_mutex_t	msg;
 }					t_data;
 
@@ -113,7 +112,7 @@ int	print_action(t_philo *philo, char *msg, char *color);
 int	ft_eat(t_philo *philo);
 int	ft_sleep(t_philo *philo);
 int	ft_think(t_philo *philo);
-int	ft_die(t_philo *philo);
+int	*ft_die(t_philo *philo);
 int	check_death(t_philo *philo);
 int	ft_usleep(int time);
 

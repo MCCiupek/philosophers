@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 10:57:46 by mciupek           #+#    #+#             */
-/*   Updated: 2021/07/28 10:57:48 by mciupek          ###   ########.fr       */
+/*   Updated: 2021/08/20 12:39:42 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ static void	*death_checker(void *arg)
 			gettimeofday(&now, NULL);
 			pthread_mutex_lock(&philo->data->msg);
 			if (time_diff(&philo->last_meal, &now) >= data->time_to_die)
-			{
-				ft_die(philo);
-				return (NULL);
-			}
+				return (ft_die(philo));
 			pthread_mutex_unlock(&philo->data->msg);
 		}
 	}
@@ -47,7 +44,6 @@ void	*start_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	//ft_usleep(philo->id % 2);
 	while (!philo->data->death)
 	{
 		if (philo->data->nb_meals > -1 && \
