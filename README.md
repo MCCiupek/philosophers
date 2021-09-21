@@ -1,1 +1,12 @@
-# philosophers1
+# philosophers
+
+## Skills
+* Imperative programming
+* Unix
+* Rigor
+
+## Description
+In this project, you will learn the basics of threading a process. You will
+learn how to make threads. You will discover the mutex.
+
+Grade: 100/100
