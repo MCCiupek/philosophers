@@ -9,4 +9,7 @@
 In this project, you will learn the basics of threading a process. You will
 learn how to make threads. You will discover the mutex.
 
+## Example
+![image](https://user-images.githubusercontent.com/51337012/135823458-eea4de5e-0c52-463b-8458-b25f706cc152.png)
+
 Grade: 100/100
