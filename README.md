@@ -1,4 +1,3 @@
-![image](https://user-images.githubusercontent.com/51337012/135870607-d5b9979d-46e3-4da7-ace5-b2affb803bbc.png)
 # Philosophers
 
 ## Skills
@@ -20,6 +19,8 @@ Eating is not limited by the remaining amounts of spaghetti or stomach space; an
 The problem is how to design a discipline of behavior (a concurrent algorithm) such that no philosopher will starve; i.e., each can forever continue to alternate between eating and thinking, assuming that no philosopher can know when others may want to eat or think.
 
 ## Use
+Run ``make`` in ''philo'' to compile executor ``philo``.
+
 ``./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]``
 
 ## Example
