@@ -26,4 +26,5 @@ Run ``make`` in ''philo'' to compile executor ``philo``.
 ## Example
 ![image](https://user-images.githubusercontent.com/51337012/135823458-eea4de5e-0c52-463b-8458-b25f706cc152.png)
 
+##
 Grade: 100/100
