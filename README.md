@@ -1,4 +1,5 @@
-# philosophers
+![image](https://user-images.githubusercontent.com/51337012/135870607-d5b9979d-46e3-4da7-ace5-b2affb803bbc.png)
+# Philosophers
 
 ## Skills
 * Imperative programming
