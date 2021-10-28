@@ -1,13 +1,14 @@
 # Philosophers
 
+In this project, you will learn the basics of threading a process. You will
+learn how to make threads. You will discover the mutex.
+
+![image](https://user-images.githubusercontent.com/51337012/139266659-4902acf9-8ecb-4eb7-8053-e866674a52a1.png)
+
 ## Skills
 * Imperative programming
 * Unix
 * Rigor
-
-## Description
-In this project, you will learn the basics of threading a process. You will
-learn how to make threads. You will discover the mutex.
 
 ## Dining Philosophers problem
 Five silent philosophers sit at a round table with bowls of spaghetti. Forks are placed between each pair of adjacent philosophers.
